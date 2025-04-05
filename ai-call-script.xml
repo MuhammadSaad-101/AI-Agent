@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <!-- Greeting the caller with company name and assistant introduction -->
+  <Say>Hello! This is Jessica calling from Kings Land Solutions. I'm reaching out to [Company Name] to share something valuable.</Say>
+  <Say>Are you looking for an advanced, AI-powered system to automate your customer calls, streamline appointment bookings, and grow your real estate business?</Say>
+  <Say>Our AI solution is designed to save you time, increase client engagement, and help you close more deals efficiently.</Say>
+  <Gather input="speech" hints="yes, no, interested, not interested, tell me more" timeout="5" numDigits="1" action="http://yourdomain.com/ai-agent-response">
+    <Say>Would you be interested in learning more about how our AI-powered agent can revolutionize your real estate business? Please say "yes" or "no".</Say>
+  </Gather>
+  <!-- Handling "No" or Uncertain Responses -->
+  <Say>If you're not sure yet, we can offer you a free demo of our AI system so you can see how it works in real-time. No obligations!</Say>
+  <Say>Or, if you're looking for something more personalized, we can even customize an AI agent that is specifically tailored to handle your business needs.</Say>
+  <Say>Would you like to schedule a free demo, or perhaps discuss a custom AI solution for your business? Say "demo" for the free demo or "custom" for the custom AI solution, or say "no" if you'd like to speak with a representative.</Say>
+  <Gather input="speech" hints="demo, custom, no" timeout="5" numDigits="1" action="http://yourdomain.com/ai-custom-demo-response">
+    <Say>Sorry, I didn’t understand. Let me connect you to one of our representatives who can assist you further.</Say>
+    <Dial>+1<AgentPhoneNumber></Dial>
+  </Gather>
+  <!-- Handling Free Demo Request -->
+  <Say>If you’d like to see how our AI works, I’m connecting you with one of our agents who will guide you through a live demo!</Say>
+  <Dial>+1<DemoAgentPhoneNumber></Dial>
+  <!-- Handling Custom AI Solution Request -->
+  <Say>If you're interested in a custom AI solution, one of our expert managers will discuss your needs and help you design a perfect system for your business.</Say>
+  <Dial>+1<CustomAgentPhoneNumber></Dial>
+  <!-- If "No" or Any Other Response, Connect to Manager -->
+  <Say>No worries! Let me connect you with a manager who can answer all your questions and provide more details.</Say>
+  <Dial>+1<AgentPhoneNumber></Dial>
+  <!-- Handling Call Timeout or No Response -->
+  <Say>It seems like we didn't get a response. I'll connect you to one of our friendly agents who can assist you right away.</Say>
+  <Dial>+1<AgentPhoneNumber></Dial>
+</Response>
